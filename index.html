@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bereket Addisu - Developer & Founder</title>
+  <meta name="description" content="Bereket Addisu — 19-year-old Ethiopian developer building practical tech solutions. Founder of Bdish." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner container">
+      <div class="brand">
+        <img src="logo.png" alt="Bereket logo" id="logo" onerror="this.style.display='none'"/>
+        <div class="brand-text">
+          <h1>Bereket Addisu</h1>
+          <p class="tagline">Developer • Founder • Builder - technology that solves real problems</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container" id="home">
+      <div class="hero-left">
+        <h2>Hi I'm Bereket, a 19-year-old developer from Addis Ababa.</h2>
+        <p class="lead">I build practical digital products and simple websites while growing my startup projects. I focus on solving everyday problems with fast, usable technology.</p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="#projects">View projects</a>
+          <a class="btn outline" id="contact-whatsapp" href="https://wa.me/251969006332" target="_blank" rel="noopener">Message on WhatsApp</a>
+        </div>
+
+        <ul class="quick-stats">
+          <li><strong>Products:</strong> Bdish (Play Store)</li>
+          <li><strong>Skills:</strong> Flutter, HTML/CSS, JS, product, Firebase, Supabase</li>
+          <li><strong>Location:</strong> Addis Ababa</li>
+        </ul>
+      </div>
+
+      <div class="hero-right">
+        <div class="mockup">
+          <img src="screenshot.png" alt="App screenshot" />
+          <div class="mockup-caption">Bdish - live on Google Play</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="container projects">
+      <h3>Selected Projects</h3>
+
+      <div class="cards">
+        <article class="card">
+          <h4>Bdish - Find Dish Technicians</h4>
+          <p>Mobile app that connects customers with satellite dish technicians in Addis Ababa. Launched on Google Play with active technicians.</p>
+          <div class="card-links">
+            <a href="https://play.google.com/store/apps/details?id=com.mycompany.menja" target="_blank" rel="noopener">Open on Play Store</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h4>Star Events (Promo Site)</h4>
+          <p>One-page promotional site for event organizing and airport surprises (built as a quick client deliverable).</p>
+          <div class="card-links">
+            <a href="https://star-events.vercel.app/" target="_blank" rel="noopener">Preview</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h4>SraTera (Demo)</h4>
+          <p>Early-stage job-posting/social feed for local job opportunities, proof of concept remains online for reference.</p>
+          <div class="card-links">
+            <a href="https://tebibsoftstore.flutterflow.app" target="_blank" rel="noopener">Preview</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="container services">
+      <h3>Services I can help with</h3>
+      <div class="services-grid">
+        <div class="service">
+          <h4>Simple business websites</h4>
+          <p>Lightweight, mobile-first landing pages with call/WhatsApp buttons and Google Maps. Delivered fast (24-48 hrs).</p>
+        </div>
+        <div class="service">
+          <h4>App prototyping & fixes</h4>
+          <p>Small Flutter fixes, UI updates, Play Store packaging and release support.</p>
+        </div>
+        <div class="service">
+          <h4>Product & growth advice</h4>
+          <p>Local market onboarding, technician supply, manual marketplace kickoff strategies.</p>
+        </div>
+      </div>
+      <div class="pricing-note">Starting price for a basic site: <strong>3,000 ETB</strong> (negotiable for early clients).</div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container about">
+      <h3>About me</h3>
+      <p>I grew up in the Tigray region and learned programming and robotics through hustle and self-study. War interrupted my formal education, but I used that time to learn and build. I founded projects to solve local problems, the most advanced of them is Bdish, a local marketplace for dish technicians.</p>
+
+      <h4>Skills & tools</h4>
+      <ul class="skills">
+        <li>Flutter & Dart</li>
+        <li>HTML, CSS, JavaScript</li>
+        <li>UI design & prototyping</li>
+        <li>Product development & field onboarding</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container contact">
+      <h3>Contact</h3>
+      <p>If you want a simple website, help with mobile release, or want to try Bdish in your area reach out.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h4>Email</h4>
+          <p><a href="mailto:bereketaddisu1477@gmail.com">bereketaddisu1477@gmail.com</a></p>
+        </div>
+        <div class="contact-card">
+          <h4>WhatsApp</h4>
+          <p><a id="wa-link" href="https://wa.me/251969006332" target="_blank" rel="noopener">+251 969006332</a></p>
+        </div>
+      </div>
+
+      <form id="contact-form" class="contact-form" onsubmit="return sendMail();">
+        <input type="text" id="name" placeholder="Your name" required />
+        <input type="email" id="email" placeholder="Your email" required />
+        <textarea id="message" placeholder="Message (brief)" rows="4" required></textarea>
+        <button class="btn primary" type="submit">Send message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Bereket Addisu - Built in Addis Ababa</p>
+      <p class="muted">Available for simple websites, app help, and startup collaboration.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
