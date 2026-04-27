@@ -3,26 +3,528 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bereket Addisu - Developer & Founder</title>
-  <meta name="description" content="Bereket Addisu — 19-year-old Ethiopian developer building practical tech solutions. Founder of Bdish." />
-  <link rel="stylesheet" href="style.css" />
+  <title>Bereket Addisu — Web Developer & App Builder</title>
+  <meta name="description" content="Bereket Addisu — Web developer & app builder. Fast delivery, clean code, real results. Available for freelance projects worldwide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --card: #16161f;
+      --border: #ffffff0f;
+      --accent: #4fffb0;
+      --accent2: #7c6aff;
+      --text: #f0f0f5;
+      --muted: #888899;
+      --radius: 12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Syne', sans-serif;
+      line-height: 1.15;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .site-header .inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-name span { color: var(--accent); }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #000 !important;
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 100px 24px 80px;
+      position: relative;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -100px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(124,106,255,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .available-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(79,255,176,0.08);
+      border: 1px solid rgba(79,255,176,0.25);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .available-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero h2 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+
+    .hero h2 .highlight {
+      color: var(--accent);
+    }
+
+    .hero .lead {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 540px;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #000;
+    }
+    .btn.primary:hover { background: #2ef09a; transform: translateY(-1px); }
+
+    .btn.outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn.outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .stats-row {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .stat span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 80px 24px; }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 48px;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--bg2); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: rgba(79,255,176,0.3);
+      transform: translateY(-2px);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+
+    .service-card h4 {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    .service-price {
+      margin-top: 16px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.95rem;
+    }
+
+    /* ── PROJECTS ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(124,106,255,0.4);
+      transform: translateY(-2px);
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent2);
+      background: rgba(124,106,255,0.1);
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+    }
+
+    .card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .card-links a {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .card-links a:hover { border-color: var(--accent); }
+
+    /* ── SKILLS ── */
+    .skills-section { background: var(--bg2); }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-chip {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .skill-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── ABOUT ── */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    @media (max-width: 680px) {
+      .about-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    .about p {
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .about p strong { color: var(--text); }
+
+    .trust-points { list-style: none; }
+
+    .trust-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .trust-points li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--bg2); }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    @media (max-width: 680px) {
+      .contact-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: border-color 0.2s;
+    }
+
+    .contact-link:hover { border-color: var(--accent); }
+
+    .contact-link .icon { font-size: 1.1rem; }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 16px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--muted);
+    }
+
+    .contact-form textarea { resize: vertical; }
+
+    .contact-form .btn { width: 100%; justify-content: center; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      .stats-row { gap: 24px; }
+      nav .hide-mobile { display: none; }
+    }
+  </style>
 </head>
 <body>
+
   <header class="site-header">
     <div class="inner container">
-      <div class="brand">
-        <img src="logo.png" alt="Bereket logo" id="logo" onerror="this.style.display='none'"/>
-        <div class="brand-text">
-          <h1>Bereket Addisu</h1>
-          <p class="tagline">Developer • Founder • Builder - technology that solves real problems</p>
-        </div>
-      </div>
-
-      <nav class="nav">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+      <div class="brand-name">Bereket<span>.</span></div>
+      <nav>
+        <a href="#services" class="hide-mobile">Services</a>
+        <a href="#projects" class="hide-mobile">Projects</a>
+        <a href="#about" class="hide-mobile">About</a>
+        <a href="#contact" class="nav-cta">Hire me</a>
       </nav>
     </div>
   </header>
@@ -30,127 +532,220 @@
   <main>
     <!-- HERO -->
     <section class="hero container" id="home">
-      <div class="hero-left">
-        <h2>Hi I'm Bereket, a 19-year-old developer from Addis Ababa.</h2>
-        <p class="lead">I build practical digital products and simple websites while growing my startup projects. I focus on solving everyday problems with fast, usable technology.</p>
+      <div class="hero-glow"></div>
 
-        <div class="cta-row">
-          <a class="btn primary" href="#projects">View projects</a>
-          <a class="btn outline" id="contact-whatsapp" href="https://wa.me/251969006332" target="_blank" rel="noopener">Message on WhatsApp</a>
-        </div>
+      <div class="available-badge">Available for freelance work</div>
 
-        <ul class="quick-stats">
-          <li><strong>Products:</strong> Bdish (Play Store)</li>
-          <li><strong>Skills:</strong> Flutter, HTML/CSS, JS, product, Firebase, Supabase</li>
-          <li><strong>Location:</strong> Addis Ababa</li>
-        </ul>
+      <h2>I build websites &amp; apps<br>that <span class="highlight">actually work.</span></h2>
+
+      <p class="lead">Web developer and app builder based in Addis Ababa. I deliver clean, fast, mobile-first sites and apps — on time, within budget, with real communication.</p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="#contact">Start a project</a>
+        <a class="btn outline" href="#projects">See my work</a>
       </div>
 
-      <div class="hero-right">
-        <div class="mockup">
-          <img src="screenshot.png" alt="App screenshot" />
-          <div class="mockup-caption">Bdish - live on Google Play</div>
+      <div class="stats-row">
+        <div class="stat">
+          <strong>3+</strong>
+          <span>Live projects</span>
         </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="container projects">
-      <h3>Selected Projects</h3>
-
-      <div class="cards">
-        <article class="card">
-          <h4>Bdish - Find Dish Technicians</h4>
-          <p>Mobile app that connects customers with satellite dish technicians in Addis Ababa. Launched on Google Play with active technicians.</p>
-          <div class="card-links">
-            <a href="https://play.google.com/store/apps/details?id=com.mycompany.menja" target="_blank" rel="noopener">Open on Play Store</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h4>Star Events (Promo Site)</h4>
-          <p>One-page promotional site for event organizing and airport surprises (built as a quick client deliverable).</p>
-          <div class="card-links">
-            <a href="https://star-events.vercel.app/" target="_blank" rel="noopener">Preview</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h4>SraTera (Demo)</h4>
-          <p>Early-stage job-posting/social feed for local job opportunities, proof of concept remains online for reference.</p>
-          <div class="card-links">
-            <a href="https://tebibsoftstore.flutterflow.app" target="_blank" rel="noopener">Preview</a>
-          </div>
-        </article>
+        <div class="stat">
+          <strong>24–48h</strong>
+          <span>Typical delivery</span>
+        </div>
+        <div class="stat">
+          <strong>100%</strong>
+          <span>Remote-ready</span>
+        </div>
       </div>
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="container services">
-      <h3>Services I can help with</h3>
-      <div class="services-grid">
-        <div class="service">
-          <h4>Simple business websites</h4>
-          <p>Lightweight, mobile-first landing pages with call/WhatsApp buttons and Google Maps. Delivered fast (24-48 hrs).</p>
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-label">What I do</div>
+        <h3 class="section-title">Services & Pricing</h3>
+
+        <div class="services-grid">
+          <div class="service-card fade-up">
+            <div class="service-icon">🌐</div>
+            <h4>Landing Pages & Business Sites</h4>
+            <p>Mobile-first, fast-loading websites with contact forms, WhatsApp buttons, maps, and clean design. Perfect for small businesses, events, and startups.</p>
+            <div class="service-price">From $80 USD &nbsp;·&nbsp; Delivered in 24–48 hrs</div>
+          </div>
+
+          <div class="service-card fade-up">
+            <div class="service-icon">📱</div>
+            <h4>App Development & Fixes</h4>
+            <p>Flutter app builds, UI improvements, bug fixes, and Google Play Store publishing support. I've shipped a live app (Bdish) already on the Play Store.</p>
+            <div class="service-price">From $120 USD &nbsp;·&nbsp; Timeline varies</div>
+          </div>
+
+          <div class="service-card fade-up">
+            <div class="service-icon">🎨</div>
+            <h4>UI Design & Prototyping</h4>
+            <p>Clean UI mockups and interactive prototypes for web and mobile. Great for validating ideas before full development investment.</p>
+            <div class="service-price">From $60 USD &nbsp;·&nbsp; 1–3 days</div>
+          </div>
+
+          <div class="service-card fade-up">
+            <div class="service-icon">⚡</div>
+            <h4>Quick Fixes & Updates</h4>
+            <p>Need a bug fixed, a section added, or your existing site updated fast? I handle small tasks efficiently so you don't wait around.</p>
+            <div class="service-price">From $30 USD &nbsp;·&nbsp; Same day possible</div>
+          </div>
         </div>
-        <div class="service">
-          <h4>App prototyping & fixes</h4>
-          <p>Small Flutter fixes, UI updates, Play Store packaging and release support.</p>
-        </div>
-        <div class="service">
-          <h4>Product & growth advice</h4>
-          <p>Local market onboarding, technician supply, manual marketplace kickoff strategies.</p>
+
+        <p style="color: var(--muted); font-size: 0.9rem;">All prices negotiable. First-time clients get priority response. I work across all time zones.</p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="container">
+      <div class="section-label">Portfolio</div>
+      <h3 class="section-title">Selected Projects</h3>
+
+      <div class="cards">
+        <article class="card fade-up">
+          <div class="card-tag">Mobile App · Live</div>
+          <h4>Bdish — Dish Technician Marketplace</h4>
+          <p>Built and launched a Flutter app connecting customers with satellite dish technicians in Addis Ababa. Live on Google Play with active users and technicians.</p>
+          <div class="card-links">
+            <a href="https://play.google.com/store/apps/details?id=com.mycompany.menja" target="_blank" rel="noopener">View on Play Store →</a>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <div class="card-tag">Web · Client Work</div>
+          <h4>Star Events — Promo Site</h4>
+          <p>One-page promotional website for an event organizing company. Built as a fast client deliverable — clean design, mobile-first, ready in under 48 hours.</p>
+          <div class="card-links">
+            <a href="https://star-events.vercel.app/" target="_blank" rel="noopener">Live preview →</a>
+          </div>
+        </article>
+
+        <article class="card fade-up">
+          <div class="card-tag">Web App · Demo</div>
+          <h4>SraTera — Local Job Board</h4>
+          <p>Early-stage job-posting and social feed app for local opportunities. Proof of concept demonstrating full-stack thinking and product design.</p>
+          <div class="card-links">
+            <a href="https://tebibsoftstore.flutterflow.app" target="_blank" rel="noopener">Live preview →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills-section">
+      <div class="container">
+        <div class="section-label">Tech Stack</div>
+        <h3 class="section-title">Skills & Tools</h3>
+        <div class="skills-grid">
+          <div class="skill-chip">HTML & CSS</div>
+          <div class="skill-chip">JavaScript</div>
+          <div class="skill-chip">Flutter & Dart</div>
+          <div class="skill-chip">Firebase</div>
+          <div class="skill-chip">Supabase</div>
+          <div class="skill-chip">FlutterFlow</div>
+          <div class="skill-chip">Responsive Design</div>
+          <div class="skill-chip">Google Play Publishing</div>
+          <div class="skill-chip">UI/UX Prototyping</div>
+          <div class="skill-chip">Vercel / Netlify</div>
+          <div class="skill-chip">Git & GitHub</div>
+          <div class="skill-chip">REST APIs</div>
         </div>
       </div>
-      <div class="pricing-note">Starting price for a basic site: <strong>3,000 ETB</strong> (negotiable for early clients).</div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="container about">
-      <h3>About me</h3>
-      <p>I grew up in the Tigray region and learned programming and robotics through hustle and self-study. War interrupted my formal education, but I used that time to learn and build. I founded projects to solve local problems, the most advanced of them is Bdish, a local marketplace for dish technicians.</p>
+      <div class="section-label">About</div>
+      <h3 class="section-title">Who I am</h3>
 
-      <h4>Skills & tools</h4>
-      <ul class="skills">
-        <li>Flutter & Dart</li>
-        <li>HTML, CSS, JavaScript</li>
-        <li>UI design & prototyping</li>
-        <li>Product development & field onboarding</li>
-      </ul>
+      <div class="about-inner">
+        <div>
+          <p>I'm a <strong>19-year-old self-taught developer</strong> from Ethiopia. I grew up in the Tigray region and taught myself programming and robotics through self-study — even when war interrupted my formal education.</p>
+          <p>I didn't wait for perfect conditions. I learned, built, and shipped. My app <strong>Bdish</strong> is live on the Google Play Store with real users. I know how to deliver working products, not just mockups.</p>
+          <p>I work remotely, communicate clearly in English, and take deadlines seriously. My clients get real work, real updates, and real results.</p>
+        </div>
+
+        <div>
+          <ul class="trust-points">
+            <li>Live app shipped to Google Play Store</li>
+            <li>Delivered client websites in under 48 hours</li>
+            <li>Clear English communication throughout</li>
+            <li>Honest about scope, timeline, and pricing</li>
+            <li>Available across time zones</li>
+            <li>Remote-first, no office needed</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="container contact">
-      <h3>Contact</h3>
-      <p>If you want a simple website, help with mobile release, or want to try Bdish in your area reach out.</p>
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-label">Contact</div>
+        <h3 class="section-title">Let's work together</h3>
 
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h4>Email</h4>
-          <p><a href="mailto:bereketaddisu1477@gmail.com">bereketaddisu1477@gmail.com</a></p>
-        </div>
-        <div class="contact-card">
-          <h4>WhatsApp</h4>
-          <p><a id="wa-link" href="https://wa.me/251969006332" target="_blank" rel="noopener">+251 969006332</a></p>
+        <div class="contact-inner">
+          <div class="contact-info">
+            <p>Ready to start a project? Reach out via email or WhatsApp — I typically respond within a few hours.</p>
+
+            <a class="contact-link" href="mailto:bereketaddisu1477@gmail.com">
+              <span class="icon">✉️</span>
+              bereketaddisu1477@gmail.com
+            </a>
+            <a class="contact-link" href="https://wa.me/251969006332" target="_blank" rel="noopener">
+              <span class="icon">💬</span>
+              WhatsApp: +251 969 006 332
+            </a>
+
+            <p style="margin-top: 20px; font-size: 0.85rem;">Based in Addis Ababa, Ethiopia · Working with clients worldwide</p>
+          </div>
+
+          <form id="contact-form" class="contact-form" onsubmit="return sendMail();">
+            <input type="text" id="name" placeholder="Your name" required />
+            <input type="email" id="email" placeholder="Your email" required />
+            <input type="text" id="budget" placeholder="Budget (e.g. $100–$300 USD)" />
+            <textarea id="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+            <button class="btn primary" type="submit">Send message →</button>
+          </form>
         </div>
       </div>
-
-      <form id="contact-form" class="contact-form" onsubmit="return sendMail();">
-        <input type="text" id="name" placeholder="Your name" required />
-        <input type="email" id="email" placeholder="Your email" required />
-        <textarea id="message" placeholder="Message (brief)" rows="4" required></textarea>
-        <button class="btn primary" type="submit">Send message</button>
-      </form>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> Bereket Addisu - Built in Addis Ababa</p>
-      <p class="muted">Available for simple websites, app help, and startup collaboration.</p>
+      <p>© <span id="year"></span> Bereket Addisu · Web Developer & App Builder · Addis Ababa, Ethiopia</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function sendMail() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const budget = document.getElementById('budget').value;
+      const message = document.getElementById('message').value;
+      const body = `Name: ${name}\nEmail: ${email}\nBudget: ${budget}\n\n${message}`;
+      window.location.href = `mailto:bereketaddisu1477@gmail.com?subject=Project Inquiry from ${name}&body=${encodeURIComponent(body)}`;
+      return false;
+    }
+
+    // Fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
