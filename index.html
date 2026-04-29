@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bereket Addisu - Web Developer & App Builder</title>
-  <meta name="description" content="Bereket Addisu - Web developer & app builder. Fast delivery, clean code, real results. Available for freelance projects worldwide." />
+  <title>Bereket Addisu - FlutterFlow Developer & Web Developer</title>
+  <meta name="description" content="Bereket Addisu — FlutterFlow specialist & web developer. Real apps shipped to Play Store. Fast delivery, clean code, available worldwide." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -80,6 +80,18 @@
       font-weight: 800;
       font-size: 1.1rem;
       letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      flex-shrink: 0;
     }
 
     .brand-name span { color: var(--accent); }
@@ -100,6 +112,40 @@
       border-radius: 6px;
       font-weight: 600 !important;
       font-family: 'Syne', sans-serif;
+    }
+
+    /* ── PROFILE PHOTO ── */
+    .profile-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .profile-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      flex-shrink: 0;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .profile-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .profile-info .available-badge {
+      margin-bottom: 0;
     }
 
     /* ── HERO ── */
@@ -519,7 +565,10 @@
 
   <header class="site-header">
     <div class="inner container">
-      <div class="brand-name">Bereket A<span>.</span></div>
+      <div class="brand-name">
+        <img src="logo.png" alt="Bereket Addisu" class="nav-avatar" />
+        Bereket A<span>.</span>
+      </div>
       <nav>
         <a href="#services" class="hide-mobile">Services</a>
         <a href="#projects" class="hide-mobile">Projects</a>
@@ -536,9 +585,9 @@
 
       <div class="available-badge">Available for freelance work</div>
 
-      <h3>I build websites &amp; apps<br>that <span class="highlight">actually work.</span></h3>
+      <h3>FlutterFlow specialist<br>who <span class="highlight">ships real apps.</span></h3>
 
-      <p class="lead">Web developer and app builder based in Addis Ababa. I deliver clean, fast, mobile-first sites and apps on time, within budget, with real communication.</p>
+      <p class="lead">FlutterFlow developer & web developer based in Addis Ababa. I've built and launched real apps on the Play Store — not just demos. Fast delivery, clean code, real communication.</p>
 
       <div class="cta-row">
         <a class="btn primary" href="#contact">Start a project</a>
@@ -569,6 +618,20 @@
 
         <div class="services-grid">
           <div class="service-card fade-up">
+            <div class="service-icon">📱</div>
+            <h4>FlutterFlow App Development</h4>
+            <p>Full app builds from scratch using FlutterFlow — including multi-role apps with customer, admin, and provider panels. Firebase & Supabase integration included. I work inside your project directly, no subscription needed on my end.</p>
+            <div class="service-price">From $150 USD &nbsp;·&nbsp; Timeline varies by scope</div>
+          </div>
+
+          <div class="service-card fade-up">
+            <div class="service-icon">🔧</div>
+            <h4>FlutterFlow Fixes & Custom Code</h4>
+            <p>Bug fixes, UI improvements, custom Dart code integration, Firebase rules, API connections, and Play Store publishing support for existing FlutterFlow projects.</p>
+            <div class="service-price">From $50 USD &nbsp;·&nbsp; Fast turnaround</div>
+          </div>
+
+          <div class="service-card fade-up">
             <div class="service-icon">🌐</div>
             <h4>Landing Pages & Business Sites</h4>
             <p>Mobile-first, fast-loading websites with contact forms, WhatsApp buttons, maps, and clean design. Perfect for small businesses, events, and startups.</p>
@@ -576,24 +639,10 @@
           </div>
 
           <div class="service-card fade-up">
-            <div class="service-icon">📱</div>
-            <h4>App Development & Fixes</h4>
-            <p>Flutter app builds, UI improvements, bug fixes, and Google Play Store publishing support. I've shipped a live app (Bdish) already on the Play Store.</p>
-            <div class="service-price">From $120 USD &nbsp;·&nbsp; Timeline varies</div>
-          </div>
-
-          <div class="service-card fade-up">
             <div class="service-icon">🎨</div>
             <h4>UI Design & Prototyping</h4>
             <p>Clean UI mockups and interactive prototypes for web and mobile. Great for validating ideas before full development investment.</p>
             <div class="service-price">From $60 USD &nbsp;·&nbsp; 1–3 days</div>
-          </div>
-
-          <div class="service-card fade-up">
-            <div class="service-icon">⚡</div>
-            <h4>Quick Fixes & Updates</h4>
-            <p>Need a bug fixed, a section added, or your existing site updated fast? I handle small tasks efficiently so you don't wait around.</p>
-            <div class="service-price">From $30 USD &nbsp;·&nbsp; Same day possible</div>
           </div>
         </div>
 
@@ -608,29 +657,29 @@
 
       <div class="cards">
         <article class="card fade-up">
-          <div class="card-tag">Mobile App · Live</div>
-          <h4>Bdish - Dish Technician Marketplace</h4>
-          <p>Built and launched a Flutter app connecting customers with satellite dish technicians in Addis Ababa. Live on Google Play with active users and technicians.</p>
+          <div class="card-tag">FlutterFlow · Live on Play Store</div>
+          <h4>Bdish — Multi-App Service Marketplace</h4>
+          <p>Built a complete service marketplace from scratch using FlutterFlow and custom Dart code. Includes three separate apps — a customer app, a technician app, and an admin panel — all integrated with Firebase for real-time data, authentication, and user management. Live on Google Play Store with active users across Addis Ababa.</p>
           <div class="card-links">
             <a href="https://play.google.com/store/apps/details?id=com.mycompany.menja" target="_blank" rel="noopener">View on Play Store →</a>
           </div>
         </article>
 
         <article class="card fade-up">
-          <div class="card-tag">Web · Client Work</div>
-          <h4>Star Events - Promo Site</h4>
-          <p>One-page promotional website for an event organizing company. Built as a fast client deliverable clean design, mobile-first, ready in under 48 hours.</p>
+          <div class="card-tag">FlutterFlow · Social App</div>
+          <h4>SraTera — Job-Focused Social Platform</h4>
+          <p>Built a full social media platform specialized for job connections. Features include a social feed for job posts with images and location, likes, comments, saves, reposts, user profiles with followers/following, verified badges, search for jobs and users, physical vs online job filtering, and a separate admin panel. Deployed as both a downloadable Android app and web app.</p>
           <div class="card-links">
-            <a href="https://star-events.vercel.app/" target="_blank" rel="noopener">Live preview →</a>
+            <a href="https://tebibsoftstore.flutterflow.app" target="_blank" rel="noopener">View download page →</a>
           </div>
         </article>
 
         <article class="card fade-up">
-          <div class="card-tag">Web App · Demo</div>
-          <h4>SraTera - Local Job Board</h4>
-          <p>Early-stage job-posting and social feed app for local opportunities. Proof of concept demonstrating full-stack thinking and product design.</p>
+          <div class="card-tag">Web · Client Work</div>
+          <h4>Star Events — Business Promo Site</h4>
+          <p>One-page promotional website for an event organizing company. Built as a fast client deliverable — clean design, mobile-first, delivered in under 48 hours.</p>
           <div class="card-links">
-            <a href="https://tebibsoftstore.flutterflow.app" target="_blank" rel="noopener">Live preview →</a>
+            <a href="https://star-events.vercel.app/" target="_blank" rel="noopener">Live preview →</a>
           </div>
         </article>
       </div>
@@ -719,7 +768,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> Bereket Addisu · Web Developer & App Builder · Addis Ababa, Ethiopia</p>
+      <p>© <span id="year"></span> Bereket Addisu · FlutterFlow Developer & Web Developer · Addis Ababa, Ethiopia</p>
     </div>
   </footer>
 
